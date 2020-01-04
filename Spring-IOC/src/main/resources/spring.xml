@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--默认构造函数构建需要无参构造方法-->
+    <bean id="helloSpring" class="com.test.spring.HelloSpring"/>
+
+    <!--指定构造函数构建-->
+<!--    <bean class="com.test.spring.HelloSpring">-->
+<!--        <constructor-arg index="0" value="lzj"/>-->
+<!--        <constructor-arg name="sex" value="1"/>-->
+<!--    </bean>-->
+
+    <!--静态工厂方法构建 用我们的build方法来构建 演示A/B测试-->
+<!--    <bean class="com.test.spring.HelloSpring" factory-method="build">-->
+<!--        <constructor-arg name="type" value="A"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="driver" class="com.test.spring.DriverFactoryBean">-->
+<!--        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/study?useSSL=true"/>-->
+<!--    </bean>-->
+
+
+<!--    <bean class="com.test.spring.HelloSpring" autowire="byType"/>-->
+<!--    <bean class="com.test.spring.FineSpring" primary="true"/>-->
+<!--    <bean class="com.test.spring.FineSpring"/>-->
+
+    <bean class="com.test.spring.LookupMethodSpring"></bean>
+
+</beans>
