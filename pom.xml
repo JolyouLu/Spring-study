@@ -16,6 +16,8 @@
     <modules>
         <module>Spring-IOC</module>
         <module>Spring-transaction</module>
+        <module>Spring-mvc</module>
+        <module>Spring-mvc</module>
     </modules>
 
 

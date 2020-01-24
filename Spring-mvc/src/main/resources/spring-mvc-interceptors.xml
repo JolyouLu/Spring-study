@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--演示SimpleControllerHandlerAdapter 适配器-->
+    <bean id="simpleControl" class="com.test.springMVC.SimpleControl"></bean>
+    <!--配置HandlerMapping-->
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="urlMap">
+            <props>
+                <!--把url映射到对应的Control-->
+                <prop key="/hello.do">simpleControl</prop>
+            </props>
+        </property>
+        <property name="interceptors">
+            <!--把拦截器织入/hello.do请求中-->
+            <bean class="com.test.springMVC.Interceptor"></bean>
+        </property>
+    </bean>
+    <!--配置HandlerAdapter-->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+    <!--配置ViewResolver-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--配置资源的前缀-->
+        <property name="prefix" value="/WEB-INF/page/"/>
+        <!--配置资源的后缀-->
+        <property name="suffix" value=".jsp"/>
+        <!--配置具体的视图解析器-->
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+    </bean>
+
+    <!--自定义异常处理-->
+    <bean class="com.test.springMVC.SimpleExceptionHandle"></bean>
+
+</beans>
