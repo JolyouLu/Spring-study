@@ -18,6 +18,7 @@
         <module>Spring-transaction</module>
         <module>Spring-mvc</module>
         <module>Spring-mvc</module>
+        <module>Spring-AOP</module>
     </modules>
 
 
